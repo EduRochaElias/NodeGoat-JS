@@ -65,7 +65,7 @@ jobs:
         env:
           vid: ${{ secrets.VeracodeID }} # Lembrar de criar as credenciais no Secrets
           VKEY: ${{ secrets.VeracodeKey }}
-          CaminhoArquivo: './veracode.zip'
+          CaminhoArquivo: 'veracode.zip'
         run: |
           curl -sSO https://downloads.veracode.com/securityscan/pipeline-scan-LATEST.zip
           unzip pipeline-scan-LATEST.zip
