@@ -1,7 +1,7 @@
 name: Veracode_Advanced
 on:
   push:
-    branches: [ master ]
+    branches: [EDU DEMO]
   workflow_dispatch:
 
 jobs:
