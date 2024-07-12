@@ -26,7 +26,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Veracode SCA
         env:
-          SRCCLR_API_TOKEN: ${{ secrets.SCA }} # Lembrar de criar as credenciais no Secrets
+          SRCCLR_API_TOKEN: ${{eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDY0MDkzLCJleHAiOjE3MjA4MTA5MTQsImF1dGhvcml0aWVzIjoiQUdFTlQiLCJqdGkiOiIzY2YxNTRmMy0xM2MwLTQyZmItYjk5YS03ZDYzM2ViMDc2NmQiLCJjbGllbnRfaWQiOiIiLCJzY29wZSI6W119.fdl70sFth7Vk5iMDsXQguKbG6vuT77LkW4eTSJIktSEaA70zkdazTWKbotgaK5ny55WpkWJ36Rb5-qRe07Jmx8zMaKggRh0CbnRHsOYZOP5uTxR-LQBNbL1NSyHvtItWg_1dzfhiqolYyug1kZNsudh27tH_S2Rt6K6znlanIDc }} # Lembrar de criar as credenciais no Secrets
         run: |
           curl -sSL 'https://download.sourceclear.com/ci.sh' | bash -s – scan --update-advisor --pull-request --allow-dirty
 
@@ -40,8 +40,8 @@ jobs:
           name: pacoteVeracode
       - uses: veracode/veracode-uploadandscan-action@master # Faz a analise da Veracode
         env:
-          VeracodeID: ${{ secrets.VeracodeID }} # Lembrar de criar as credenciais no Secrets
-          VeracodeKey: ${{ secrets.VeracodeKey }}
+          VeracodeID: ${{ffd96172a90930b74801ff6474ebd66f}} # Lembrar de criar as credenciais no Secrets
+          VeracodeKey: ${{feb2fd8cdf3d056a6c36c3a060c63b8fad44610439c3edad5af8dc390eb265d7d97cfe3922d2322915fb8aa0deee42e6e8882ab9a40efe78471675f389f5965b}}
           AppName: Github Actions - ${{ github.repository }}
         with:
           vid: '$VeracodeID'
