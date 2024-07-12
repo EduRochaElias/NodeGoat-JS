@@ -52,21 +52,3 @@ jobs:
           filepath: 'veracode.zip'
           deleteIncompleteScan: false
           version: ${{ github.run_id }}
-
-  Veracode_PipelineScan:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Download Artefato
-        uses: actions/download-artifact@v2
-        with:
-          name: pacoteVeracode
-      - name: Veracode Pipeline Scan
-        env:
-          VID: ${{ffd96172a90930b74801ff6474ebd66f}} # Lembrar de criar as credenciais no Secrets
-          VKEY: ${{feb2fd8cdf3d056a6c36c3a060c63b8fad44610439c3edad5af8dc390eb265d7d97cfe3922d2322915fb8aa0deee42e6e8882ab9a40efe78471675f389f5965b}}
-          CaminhoArquivo: 'veracode.zip'
-        run: |
-          curl -sSO https://downloads.veracode.com/securityscan/pipeline-scan-LATEST.zip
-          unzip pipeline-scan-LATEST.zip
-          java -jar pipeline-scan.jar -vid $VID -vkey $VKEY -f $CaminhoArquivo --issue_details true
