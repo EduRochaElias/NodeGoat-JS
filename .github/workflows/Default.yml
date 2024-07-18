@@ -1,7 +1,7 @@
 name: Default
 on:
   push:
-    branches: [ master ]
+    branches: [ Edu-demo ]
   workflow_dispatch:
 jobs:
   build:
@@ -26,8 +26,8 @@ jobs:
 
     - uses: veracode/veracode-uploadandscan-action@master # Faz a analise da Veracode
       env:
-        VID: ${{ secrets.VID }} # Lembrar de criar as credenciais no Secrets
-        VKEY: ${{ secrets.VKEY }}
+        VID: ${{ secrets.VERACODE_API_ID }} # Lembrar de criar as credenciais no Secrets
+        VKEY: ${{ secrets.VERACODE_API_KEY}}
         AppName: Github Actions - ${{ github.repository }}
       with:
         vid: '$VID'
@@ -41,7 +41,7 @@ jobs:
 
     - name: Veracode SCA
       env:
-        SRCCLR_API_TOKEN: ${{ secrets.SCA }} # Lembrar de criar as credenciais no Secrets
+        SRCCLR_API_TOKEN: ${{ secrets.SRCCLR_API_TOKEN }} # Lembrar de criar as credenciais no Secrets
       run: |
         curl -sSL 'https://download.sourceclear.com/ci.sh' | bash -s scan --update-advisor
 
@@ -50,8 +50,8 @@ jobs:
     
     - name: Veracode Pipeline Scan
       env:
-        VID: ${{ secrets.VID }} # Lembrar de criar as credenciais no Secrets
-        VKEY: ${{ secrets.VKEY }}
+        VID: ${{ secrets.VERACODE_API_ID }} # Lembrar de criar as credenciais no Secrets
+        VKEY: ${{ secrets.VERACODE_API_KEY}}
         CaminhoArquivo: 'veracode.zip'
       run: |
         curl -sSO https://downloads.veracode.com/securityscan/pipeline-scan-LATEST.zip
