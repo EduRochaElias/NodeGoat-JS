@@ -1,6 +1,6 @@
 # Node
 trigger:
-- master
+- Edu-demo
 
 pool:
   vmImage: ubuntu-latest
@@ -45,7 +45,7 @@ steps:
     ConnectionDetailsSelection: 'Credentials'
     apiId: '$(APIID)'
     apiKey: '$(APIKEY)'
-    veracodeAppProfile: '$(veracodeAppProfile)'
+    veracodeAppProfile: '$(NodeGoat-JS)'
     version: '$(build.buildNumber)'
     filepath: '$(caminhoPacote)'
     createSandBox: false
