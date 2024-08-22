@@ -45,7 +45,6 @@ steps:
     ConnectionDetailsSelection: 'Credentials'
     apiId: '$(APIID)'
     apiKey: '$(APIKEY)'
-    SRCCLR_API_TOKEN: '$(SRCCLR_API_TOKEN)'
     version: '$(build.buildNumber)'
     filepath: '$(caminhoPacote)'
     createSandBox: false
